@@ -11759,7 +11759,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
@@ -11842,7 +11842,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
@@ -12356,14 +12356,16 @@ Keep Prob Tests Passed.
     <span class="c1"># TODO: Implement Function</span>
     <span class="nb">print</span> <span class="p">(</span><span class="n">conv_ksize</span><span class="p">)</span>
     <span class="n">weight</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">truncated_normal</span><span class="p">([</span><span class="n">conv_ksize</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">conv_ksize</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">tf</span><span class="o">.</span><span class="n">to_int32</span><span class="p">(</span><span class="n">x_tensor</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">3</span><span class="p">]),</span><span class="n">conv_num_outputs</span><span class="p">]))</span> 
-    <span class="n">bias</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="n">conv_num_outputs</span><span class="p">]))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">weight</span><span class="p">)</span>
+    <span class="n">bias</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">truncated_normal</span><span class="p">([</span><span class="n">conv_num_outputs</span><span class="p">]))</span>
     <span class="n">conv_layer</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">conv2d</span><span class="p">(</span><span class="n">x_tensor</span><span class="p">,</span> <span class="n">weight</span><span class="p">,</span> <span class="n">strides</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">conv_strides</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">conv_strides</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">1</span><span class="p">],</span> <span class="n">padding</span><span class="o">=</span><span class="s1">&#39;SAME&#39;</span><span class="p">)</span>
     <span class="n">conv_layer</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">bias_add</span><span class="p">(</span><span class="n">conv_layer</span><span class="p">,</span> <span class="n">bias</span><span class="p">)</span>
-    <span class="n">conv_layer</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="n">conv_layer</span><span class="p">)</span>
+    <span class="c1">#conv_layer = tf.nn.relu(conv_layer)</span>
     <span class="c1"># Apply Max Pooling</span>
     <span class="n">conv_layer</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">max_pool</span><span class="p">(</span><span class="n">conv_layer</span><span class="p">,</span> <span class="n">ksize</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">pool_ksize</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">pool_ksize</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">1</span><span class="p">],</span> <span class="n">strides</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">pool_strides</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">pool_strides</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">1</span><span class="p">],</span>
         <span class="n">padding</span><span class="o">=</span><span class="s1">&#39;SAME&#39;</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">conv_layer</span><span class="p">)</span>
+    
     <span class="k">return</span> <span class="n">conv_layer</span>
 
 
@@ -12385,6 +12387,7 @@ Keep Prob Tests Passed.
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>(2, 2)
+Tensor(&#34;Variable/read:0&#34;, shape=(2, 2, 5, 10), dtype=float32)
 Tensor(&#34;MaxPool:0&#34;, shape=(?, 4, 4, 10), dtype=float32)
 Tests Passed
 </pre>
@@ -12469,8 +12472,13 @@ Tests Passed
 <span class="sd">    : return: A 2-D tensor where the second dimension is num_outputs.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># TODO: Implement Function</span>
-    
-    <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">contrib</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">fully_connected</span><span class="p">(</span><span class="n">x_tensor</span><span class="p">,</span> <span class="n">num_outputs</span><span class="p">)</span>
+    <span class="n">weight</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">random_normal</span><span class="p">((</span><span class="nb">int</span><span class="p">(</span><span class="n">x_tensor</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="n">num_outputs</span><span class="p">)))</span>
+    <span class="n">bias</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">num_outputs</span><span class="p">))</span>
+    <span class="n">result_mul</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">x_tensor</span><span class="p">,</span> <span class="n">weight</span><span class="p">),</span> <span class="n">bias</span><span class="p">)</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="n">result_mul</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">output</span>
+
+    <span class="c1">#return tf.contrib.layers.fully_connected(x_tensor, num_outputs)</span>
 
 
 <span class="sd">&quot;&quot;&quot;</span>
@@ -12522,8 +12530,12 @@ Tests Passed
 <span class="sd">    : return: A 2-D tensor where the second dimension is num_outputs.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># TODO: Implement Function</span>
-    
-    <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">contrib</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">fully_connected</span><span class="p">(</span><span class="n">x_tensor</span><span class="p">,</span> <span class="n">num_outputs</span><span class="p">)</span>
+    <span class="c1"># print(num_outputs)</span>
+    <span class="n">weight</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">random_normal</span><span class="p">((</span><span class="nb">int</span><span class="p">(</span><span class="n">x_tensor</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="n">num_outputs</span><span class="p">)))</span>
+    <span class="n">bias</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">num_outputs</span><span class="p">))</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">x_tensor</span><span class="p">,</span> <span class="n">weight</span><span class="p">),</span> <span class="n">bias</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">output</span>
+    <span class="c1">#return tf.contrib.layers.fully_connected(x_tensor, num_outputs)</span>
 
 
 <span class="sd">&quot;&quot;&quot;</span>
@@ -12571,7 +12583,7 @@ Tests Passed
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[58]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">conv_net</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">keep_prob</span><span class="p">):</span>
@@ -12585,17 +12597,17 @@ Tests Passed
     <span class="c1">#    Play around with different number of outputs, kernel size and stride</span>
     <span class="c1"># Function Definition from Above:</span>
     <span class="c1">#conv2d_maxpool(x, 2, conv_ksize, conv_strides, pool_ksize, pool_strides)</span>
-    <span class="n">conv1</span><span class="o">=</span> <span class="n">conv2d_maxpool</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">12</span><span class="p">,(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">),(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">),(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
-    <span class="n">conv2</span><span class="o">=</span> <span class="n">conv2d_maxpool</span><span class="p">(</span><span class="n">conv1</span><span class="p">,</span><span class="mi">24</span><span class="p">,(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">),(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">),(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+    <span class="n">conv1</span><span class="o">=</span> <span class="n">conv2d_maxpool</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">24</span><span class="p">,(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">),(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">),(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+    <span class="n">conv2</span><span class="o">=</span> <span class="n">conv2d_maxpool</span><span class="p">(</span><span class="n">conv1</span><span class="p">,</span><span class="mi">32</span><span class="p">,(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">),(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">),(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
     <span class="n">conv3</span><span class="o">=</span> <span class="n">conv2d_maxpool</span><span class="p">(</span><span class="n">conv2</span><span class="p">,</span><span class="mi">48</span><span class="p">,(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">),(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">),(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
 
     <span class="c1"># TODO: Apply a Flatten Layer</span>
     <span class="c1"># Function Definition from Above:</span>
     <span class="c1"># flatten(x_tensor)</span>
-    <span class="n">flatten_layer</span><span class="o">=</span><span class="n">flatten</span><span class="p">(</span><span class="n">conv3</span><span class="p">)</span>
-    <span class="n">fc1</span><span class="o">=</span><span class="n">fully_conn</span><span class="p">(</span><span class="n">flatten_layer</span><span class="p">,</span><span class="mi">8192</span><span class="p">)</span>
+    <span class="n">flatten_layer</span><span class="o">=</span><span class="n">flatten</span><span class="p">(</span><span class="n">conv2</span><span class="p">)</span>
+    <span class="n">fc1</span><span class="o">=</span><span class="n">fully_conn</span><span class="p">(</span><span class="n">flatten_layer</span><span class="p">,</span><span class="mi">1024</span><span class="p">)</span>
     <span class="n">fc1</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">dropout</span><span class="p">(</span><span class="n">fc1</span><span class="p">,</span><span class="n">keep_prob</span><span class="p">)</span>
-    <span class="n">fc2</span><span class="o">=</span><span class="n">fully_conn</span><span class="p">(</span><span class="n">fc1</span><span class="p">,</span><span class="mi">4096</span><span class="p">)</span>
+    <span class="n">fc2</span><span class="o">=</span><span class="n">fully_conn</span><span class="p">(</span><span class="n">fc1</span><span class="p">,</span><span class="mi">256</span><span class="p">)</span>
     <span class="n">fc2</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">dropout</span><span class="p">(</span><span class="n">fc2</span><span class="p">,</span><span class="n">keep_prob</span><span class="p">)</span>
     <span class="n">fc3</span><span class="o">=</span><span class="n">fully_conn</span><span class="p">(</span><span class="n">fc2</span><span class="p">,</span><span class="mi">2048</span><span class="p">)</span>
     <span class="n">fc3</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">dropout</span><span class="p">(</span><span class="n">fc3</span><span class="p">,</span><span class="n">keep_prob</span><span class="p">)</span>
@@ -12659,16 +12671,22 @@ Tests Passed
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>(3, 3)
-Tensor(&#34;MaxPool:0&#34;, shape=(?, 16, 16, 12), dtype=float32)
+Tensor(&#34;Variable/read:0&#34;, shape=(3, 3, 3, 24), dtype=float32)
+Tensor(&#34;MaxPool:0&#34;, shape=(?, 16, 16, 24), dtype=float32)
 (3, 3)
-Tensor(&#34;MaxPool_1:0&#34;, shape=(?, 8, 8, 24), dtype=float32)
+Tensor(&#34;Variable_2/read:0&#34;, shape=(3, 3, 24, 32), dtype=float32)
+Tensor(&#34;MaxPool_1:0&#34;, shape=(?, 8, 8, 32), dtype=float32)
 (3, 3)
+Tensor(&#34;Variable_4/read:0&#34;, shape=(3, 3, 32, 48), dtype=float32)
 Tensor(&#34;MaxPool_2:0&#34;, shape=(?, 4, 4, 48), dtype=float32)
 (3, 3)
-Tensor(&#34;MaxPool_3:0&#34;, shape=(?, 16, 16, 12), dtype=float32)
+Tensor(&#34;Variable_14/read:0&#34;, shape=(3, 3, 3, 24), dtype=float32)
+Tensor(&#34;MaxPool_3:0&#34;, shape=(?, 16, 16, 24), dtype=float32)
 (3, 3)
-Tensor(&#34;MaxPool_4:0&#34;, shape=(?, 8, 8, 24), dtype=float32)
+Tensor(&#34;Variable_16/read:0&#34;, shape=(3, 3, 24, 32), dtype=float32)
+Tensor(&#34;MaxPool_4:0&#34;, shape=(?, 8, 8, 32), dtype=float32)
 (3, 3)
+Tensor(&#34;Variable_18/read:0&#34;, shape=(3, 3, 32, 48), dtype=float32)
 Tensor(&#34;MaxPool_5:0&#34;, shape=(?, 4, 4, 48), dtype=float32)
 Neural Network Built!
 </pre>
@@ -12698,7 +12716,7 @@ Neural Network Built!
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[65]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">train_neural_network</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">,</span> <span class="n">keep_probability</span><span class="p">,</span> <span class="n">feature_batch</span><span class="p">,</span> <span class="n">label_batch</span><span class="p">):</span>
@@ -12752,7 +12770,7 @@ Neural Network Built!
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[66]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">print_stats</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">feature_batch</span><span class="p">,</span> <span class="n">label_batch</span><span class="p">,</span> <span class="n">cost</span><span class="p">,</span> <span class="n">accuracy</span><span class="p">):</span>
@@ -12767,12 +12785,12 @@ Neural Network Built!
     <span class="n">test_acc</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">accuracy</span><span class="p">,</span> <span class="n">feed_dict</span><span class="o">=</span><span class="p">{</span>
         <span class="n">x</span><span class="p">:</span> <span class="n">feature_batch</span><span class="p">,</span>
         <span class="n">y</span><span class="p">:</span> <span class="n">label_batch</span><span class="p">,</span>
-        <span class="n">keep_prob</span><span class="p">:</span> <span class="mf">0.96</span><span class="p">})</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Testing Accuracy: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">test_acc</span><span class="p">))</span>
+        <span class="n">keep_prob</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">})</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Validation Accuracy: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">test_acc</span><span class="p">))</span>
     <span class="n">loss</span> <span class="o">=</span> <span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">cost</span><span class="p">,</span> <span class="n">feed_dict</span><span class="o">=</span><span class="p">{</span>
                 <span class="n">x</span><span class="p">:</span> <span class="n">feature_batch</span><span class="p">,</span>
                 <span class="n">y</span><span class="p">:</span> <span class="n">label_batch</span><span class="p">,</span>
-                <span class="n">keep_prob</span><span class="p">:</span> <span class="mf">0.96</span><span class="p">})</span>
+                <span class="n">keep_prob</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">})</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Loss: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">loss</span><span class="p">))</span>
     <span class="k">pass</span>
 </pre></div>
@@ -12805,13 +12823,13 @@ Neural Network Built!
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[69]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># TODO: Tune Parameters</span>
-<span class="n">epochs</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">epochs</span> <span class="o">=</span> <span class="mi">20</span>
 <span class="n">batch_size</span> <span class="o">=</span> <span class="mi">512</span>
-<span class="n">keep_probability</span> <span class="o">=</span> <span class="mf">0.96</span>
+<span class="n">keep_probability</span> <span class="o">=</span> <span class="mf">1.0</span>
 </pre></div>
 
 </div>
@@ -12831,7 +12849,7 @@ Neural Network Built!
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[70]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
@@ -12862,106 +12880,42 @@ Neural Network Built!
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Checking the Training on a Single Batch...
-Epoch  1, CIFAR-10 Batch 1:  Testing Accuracy: 0.10810811072587967
-Loss: 2.3025832176208496
-Epoch  2, CIFAR-10 Batch 1:  Testing Accuracy: 0.10810811072587967
-Loss: 2.3025832176208496
-Epoch  3, CIFAR-10 Batch 1:  Testing Accuracy: 0.10810811072587967
-Loss: 2.3025832176208496
-Epoch  4, CIFAR-10 Batch 1:  Testing Accuracy: 0.10810811072587967
-Loss: 2.3025832176208496
-Epoch  5, CIFAR-10 Batch 1:  Testing Accuracy: 0.10810811072587967
-Loss: 2.3025832176208496
-Epoch  6, CIFAR-10 Batch 1:  Testing Accuracy: 0.10810811072587967
-Loss: 2.3025832176208496
-Epoch  7, CIFAR-10 Batch 1:  Testing Accuracy: 0.10810811072587967
-Loss: 2.3025832176208496
-Epoch  8, CIFAR-10 Batch 1:  Testing Accuracy: 0.10810811072587967
-Loss: 2.3025832176208496
-Epoch  9, CIFAR-10 Batch 1:  Testing Accuracy: 0.10810811072587967
-Loss: 2.3025832176208496
-Epoch 10, CIFAR-10 Batch 1:  Testing Accuracy: 0.10810811072587967
-Loss: 2.3025832176208496
-Epoch 11, CIFAR-10 Batch 1:  Testing Accuracy: 0.10810811072587967
-Loss: 2.3025832176208496
-Epoch 12, CIFAR-10 Batch 1:  Testing Accuracy: 0.10810811072587967
-Loss: 2.3025832176208496
-Epoch 13, CIFAR-10 Batch 1:  Testing Accuracy: 0.10810811072587967
-Loss: 2.3025832176208496
-Epoch 14, CIFAR-10 Batch 1:  Testing Accuracy: 0.10810811072587967
-Loss: 2.3025832176208496
-Epoch 15, CIFAR-10 Batch 1:  Testing Accuracy: 0.10810811072587967
-Loss: 2.3025832176208496
-Epoch 16, CIFAR-10 Batch 1:  Testing Accuracy: 0.10810811072587967
-Loss: 2.3025832176208496
-Epoch 17, CIFAR-10 Batch 1:  Testing Accuracy: 0.10810811072587967
-Loss: 2.3025832176208496
-Epoch 18, CIFAR-10 Batch 1:  Testing Accuracy: 0.10810811072587967
-Loss: 2.3025832176208496
-Epoch 19, CIFAR-10 Batch 1:  Testing Accuracy: 0.10810811072587967
-Loss: 2.3025832176208496
-Epoch 20, CIFAR-10 Batch 1:  Testing Accuracy: 0.10810811072587967
-Loss: 2.3025832176208496
-Epoch 21, CIFAR-10 Batch 1:  Testing Accuracy: 0.10810811072587967
-Loss: 2.3025832176208496
-Epoch 22, CIFAR-10 Batch 1:  Testing Accuracy: 0.10810811072587967
-Loss: 2.3025832176208496
-Epoch 23, CIFAR-10 Batch 1:  Testing Accuracy: 0.10810811072587967
-Loss: 2.3025832176208496
-Epoch 24, CIFAR-10 Batch 1:  Testing Accuracy: 0.10810811072587967
-Loss: 2.3025832176208496
-Epoch 25, CIFAR-10 Batch 1:  Testing Accuracy: 0.10810811072587967
-Loss: 2.3025832176208496
-Epoch 26, CIFAR-10 Batch 1:  Testing Accuracy: 0.10810811072587967
-Loss: 2.3025832176208496
-Epoch 27, CIFAR-10 Batch 1:  Testing Accuracy: 0.10810811072587967
-Loss: 2.3025832176208496
-Epoch 28, CIFAR-10 Batch 1:  Testing Accuracy: 0.10810811072587967
-Loss: 2.3025832176208496
-Epoch 29, CIFAR-10 Batch 1:  Testing Accuracy: 0.10810811072587967
-Loss: 2.3025832176208496
-Epoch 30, CIFAR-10 Batch 1:  Testing Accuracy: 0.10810811072587967
-Loss: 2.3025832176208496
-Epoch 31, CIFAR-10 Batch 1:  Testing Accuracy: 0.10810811072587967
-Loss: 2.3025832176208496
-Epoch 32, CIFAR-10 Batch 1:  Testing Accuracy: 0.10810811072587967
-Loss: 2.3025832176208496
-Epoch 33, CIFAR-10 Batch 1:  Testing Accuracy: 0.10810811072587967
-Loss: 2.3025832176208496
-Epoch 34, CIFAR-10 Batch 1:  Testing Accuracy: 0.10810811072587967
-Loss: 2.3025832176208496
-Epoch 35, CIFAR-10 Batch 1:  Testing Accuracy: 0.10810811072587967
-Loss: 2.3025832176208496
-Epoch 36, CIFAR-10 Batch 1:  Testing Accuracy: 0.10810811072587967
-Loss: 2.3025832176208496
-Epoch 37, CIFAR-10 Batch 1:  Testing Accuracy: 0.10810811072587967
-Loss: 2.3025832176208496
-Epoch 38, CIFAR-10 Batch 1:  Testing Accuracy: 0.10810811072587967
-Loss: 2.3025832176208496
-Epoch 39, CIFAR-10 Batch 1:  Testing Accuracy: 0.10810811072587967
-Loss: 2.3025832176208496
-Epoch 40, CIFAR-10 Batch 1:  Testing Accuracy: 0.10810811072587967
-Loss: 2.3025832176208496
-Epoch 41, CIFAR-10 Batch 1:  Testing Accuracy: 0.10810811072587967
-Loss: 2.3025832176208496
-Epoch 42, CIFAR-10 Batch 1:  Testing Accuracy: 0.10810811072587967
-Loss: 2.3025832176208496
-Epoch 43, CIFAR-10 Batch 1:  Testing Accuracy: 0.10810811072587967
-Loss: 2.3025832176208496
-Epoch 44, CIFAR-10 Batch 1:  Testing Accuracy: 0.10810811072587967
-Loss: 2.3025832176208496
-Epoch 45, CIFAR-10 Batch 1:  Testing Accuracy: 0.10810811072587967
-Loss: 2.3025832176208496
-Epoch 46, CIFAR-10 Batch 1:  Testing Accuracy: 0.10810811072587967
-Loss: 2.3025832176208496
-Epoch 47, CIFAR-10 Batch 1:  Testing Accuracy: 0.10810811072587967
-Loss: 2.3025832176208496
-Epoch 48, CIFAR-10 Batch 1:  Testing Accuracy: 0.10810811072587967
-Loss: 2.3025832176208496
-Epoch 49, CIFAR-10 Batch 1:  Testing Accuracy: 0.10810811072587967
-Loss: 2.3025832176208496
-Epoch 50, CIFAR-10 Batch 1:  Testing Accuracy: 0.10810811072587967
-Loss: 2.3025832176208496
+Epoch  1, CIFAR-10 Batch 1:  Validation Accuracy: 0.14864864945411682
+Loss: 3739122.25
+Epoch  2, CIFAR-10 Batch 1:  Validation Accuracy: 0.2060810774564743
+Loss: 2289292.0
+Epoch  3, CIFAR-10 Batch 1:  Validation Accuracy: 0.23986487090587616
+Loss: 1594523.625
+Epoch  4, CIFAR-10 Batch 1:  Validation Accuracy: 0.2635135054588318
+Loss: 1244678.75
+Epoch  5, CIFAR-10 Batch 1:  Validation Accuracy: 0.30405405163764954
+Loss: 1005267.25
+Epoch  6, CIFAR-10 Batch 1:  Validation Accuracy: 0.32770270109176636
+Loss: 844996.875
+Epoch  7, CIFAR-10 Batch 1:  Validation Accuracy: 0.3918918967247009
+Loss: 722920.1875
+Epoch  8, CIFAR-10 Batch 1:  Validation Accuracy: 0.4054054021835327
+Loss: 635162.3125
+Epoch  9, CIFAR-10 Batch 1:  Validation Accuracy: 0.4324324429035187
+Loss: 565591.8125
+Epoch 10, CIFAR-10 Batch 1:  Validation Accuracy: 0.43918919563293457
+Loss: 516577.84375
+Epoch 11, CIFAR-10 Batch 1:  Validation Accuracy: 0.42905405163764954
+Loss: 469886.90625
+Epoch 12, CIFAR-10 Batch 1:  Validation Accuracy: 0.43918919563293457
+Loss: 415802.0
+Epoch 13, CIFAR-10 Batch 1:  Validation Accuracy: 0.45270270109176636
+Loss: 394225.3125
+Epoch 14, CIFAR-10 Batch 1:  Validation Accuracy: 0.48986485600471497
+Loss: 341226.875
+Epoch 15, CIFAR-10 Batch 1:  Validation Accuracy: 0.49662160873413086
+Loss: 313970.5
+Epoch 16, CIFAR-10 Batch 1:  Validation Accuracy: 0.5033783912658691
+Loss: 280980.875
+Epoch 17, CIFAR-10 Batch 1:  Validation Accuracy: 0.5540540814399719
+Loss: 249453.734375
+Epoch 18, CIFAR-10 Batch 1:  Validation Accuracy: 0.5574324131011963
+Loss: 248272.15625
 </pre>
 </div>
 </div>
